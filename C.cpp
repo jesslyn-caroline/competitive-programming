@@ -18,26 +18,11 @@ int main () {
     cin >> grid[0] >> grid[1];
     int value[2][n]; memset(value, 0, sizeof(value));
     
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < n; j++) {
-            if (grid[i][j] == '#') {
-                value[i][j] = -1;
-            }
+    vector <pair <int, int>> possiblePoint;
+    for (int i = 0; i < n; i++) {
+        for (int i = 0; i < 2; i++) {
+            if (grid[i][j] != '#') possiblePoint.pb({i, j});
         }
     }
-    bool up = true; // true if 0, false if 1
-    for (int i = 0; i < 3; i++) {
-        int j = 0;
-        while (arr[i].second-- and j < n) {
-            if (up and value[0][j] == 0) value[0][j] = arr[i].first;
-            else if (!up and value[0][j] == 0) value[0][j] = arr[i].first;
-            j++; up = !up;
-        }
-    }
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < n; j++) {
-            cout << value[i][j] << " ";
-        }
-        cout << endl;
-    }
+    
 }
