@@ -33,4 +33,8 @@ signed main () {
     }
     
     int q; cin >> q;
+    while (q--) {
+        int r, c, k; cin >> r >> c >> k;
+        
+    }
 }
