@@ -1,32 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long
+#define int long long 
+
+#define vc vector
+#define pb push_back
+
+#define pii pair <int, int>
+#define fi first
+#define se second
+
+#define pq priority_queue
 
 signed main () {
     int n, m; cin >> n >> m;
-    int grid[n][m]; memset(grid, 0, sizeof(grid));
-    int centralY = n / 2 - (n % 2 == 0? 1 : 0) , centralX = m / 2 - (m % 2 == 0? 1 : 0);
-    int x = centralX, y = centralY;
-    for (int i = 0; i < centralY; i++) {
-        for (int j = i; j < m - i; j++) {
-            grid[i][j] = y;
-            grid[n-i-1][j] = y;
+    
+    // To find the sum of found treasure by index (i, j);
+    int pre[n+1][m+1]; memset(pre, 0, sizeof(pre));
+    for (int i = 1; i <= n; i++) {
+        string s; cin >> s;
+        for (int j = 1; j <= m; j++) {
+            int a = s[j-1] - '0';
+            pre[i][j] = pre[i][j-1] + pre[i-1][j] - pre[i-1][j-1] + a;
         }
-        y--;
-    }
-    for (int i = 0; i < centralX; i++) {
-        for (int j = i; j < n - i; j++) {
-            grid[j][i] = x;
-            grid[j][m-i-1] = x;
-        }
-        x--;
     }
     
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            cout << grid[i][j] << " ";
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            cout << pre[i][j] << " ";
         }
         cout << endl;
     }
+    
+    int q; cin >> q;
 }
