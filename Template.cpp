@@ -6,12 +6,9 @@ using namespace std;
 #define vc vector
 
 #define pb push_back
-#define pop_front(v) v.erase(v.begin())
 #define erase(v, i) v.erase(v.begin() + i)
-
-#define sort(v) sort(v.begin(), v.end())
-#define sortr(v) sort(v.rbegin(), v.rend())
-#define find(v, i) find(v.begin(), v.end(), i)
+#define all(v) v.begin(), v.end()
+#define allr(v) v.rbegin(), v.rend()
 
 #define pii pair <int, int>
 #define fi first
@@ -19,8 +16,7 @@ using namespace std;
 
 #define pq priority_queue
 
-#define in insert
-#define find(v, i) v.find(i)
+#define in(i) insert(i)
 
 
 signed main () {
